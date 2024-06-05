@@ -1,0 +1,19 @@
+<%- include('../partials/header.ejs')%>
+    <main class="eventMain">
+        <h1><%= event.title%></h1>
+        <form>
+            <b>Going?</b>
+            <button type = "submit" formmethod="POST" formaction="/events/<%= event.id%>/rsvp" class = "yes" name="status" value="YES">YES</button>
+            <button type = "submit" formmethod="POST" formaction="/events/<%= event.id%>/rsvp" class = "no" name="status" value="NO">NO</button>
+            <button type = "submit" formmethod="POST" formaction="/events/<%= event.id%>/rsvp" class = "maybe" name="status" value="MAYBE">MAYBE</button>
+        </form>
+        <img src="<%= event.image%>" alt="">
+        <p><b>Host:</b> <%= event.hostName.firstName + ' ' + event.hostName.lastName%></p>
+        <p><b>Category:</b> <%= event.category%></p>
+        <p><b>Start Date and Time: </b> <%= event.start%></p>
+        <p><b>End Date and Time: </b> <%= event.end%></p>
+        <p><b>Location:</b> <%= event.location%></p>
+        <p><b>Details:</b> <%= event.details%></p>
+        <p><b>Number of rsvps:</b> <%= rsvp.length%></p>
+    </main>
+    <%- include('../partials/footer.ejs')%>

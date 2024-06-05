@@ -1,0 +1,20 @@
+<%- include('../partials/header.ejs')%>
+    <main class="eventsMain">
+        
+        <%for(let i = 0; i < categories.length; i++) {%>
+            
+            <ul><b><%= categories[i] %></b>
+            <%for(let j = 0; j < events.length; j++) {%>
+                    <%if(events[j].category === categories[i]) {%>
+                        
+                        <li><a href = "events/<%= events[j].id%>"><%= events[j].title%></a></li>
+                        
+                    <%}%>
+                <%}%>
+            </ul>
+        <%}%>
+      
+ 
+    </main>  
+ 
+    <%- include('../partials/footer.ejs')%>

@@ -1,0 +1,63 @@
+<%- include('../partials/header.ejs')%>
+    <%if(events.length){%>
+        <h1 class="profileHeader">My Events</h1>
+        
+        <table class="header">
+            
+            <tr>
+                <th class="title">Title</th>
+                <th class="actions">Actions</th>
+            </tr>
+        </table>
+
+        <%events.forEach(event =>{%>
+        <table class="content">
+            
+            <tr>
+                
+                <td class="titles">
+                    
+                    <a href = '/events/<%= event.id%>'><p><%=event.title%></p></a>
+                </td>
+                <td>
+                    <form>
+                        <button type = "submit" formmethod="GET" formaction="/events/<%= event.id%>/edit" class = "edit"><i class="fa fa-pencil-square-o" title="Edit"></i></button>
+                        <button type = "submit" formmethod="POST" formaction="/events/<%= event.id%>/?_method=DELETE" class = "delete"><i class="fa fa-trash" title="Delete"></i></button>
+                    </form>
+                </td>
+            </tr>
+            
+        </table>
+        <%});
+    } else {%>
+        <h1>You have not created any events</h1>
+    <%}%>
+
+    <%if(rsvp.length){%>
+        <h1 class="profileHeader">My RSVPs</h1>
+        
+        <table class="header">
+            
+            <tr>
+                <th class="title">Title</th>
+                <th class="actions">Going?</th>
+            </tr>
+        </table>
+
+        <%rsvp.forEach(rsvp =>{%>
+        <table class="content">
+            <tr>
+                <td class="titles"> 
+                    <a href="/events/<%= rsvp.event%>"><p><%=rsvp.title%></p></a>
+                </td>
+                <td>
+                    <p><%=rsvp.status%></p>
+                </td>
+            </tr>
+        </table>
+        <%});
+    } else {%>
+        <h1>You have not RSVP to any events</h1>
+    <%}%>
+    
+    <%- include('../partials/footer.ejs')%> 

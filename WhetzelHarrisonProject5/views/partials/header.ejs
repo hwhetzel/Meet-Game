@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="/css/design.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>Index</title>
+    </head>
+    <body>
+        <header>
+            <div class="headingMain">
+                <a href="/"><img src="/images/Meet&GameLogo.jpeg" alt="Webiste Logo"></a>
+                
+                <%if(!user) {%>
+                    <a href="/users/login" class="split">Login</a>
+                    <a href="/users/new" class="split">Sign up</a>
+                <%} else {%>
+                    <a href="/events/newEvent" class="split">New Event</a>
+                    <a href="/users/profile" class="split"><%= user.firstName%>'s Profile</a>
+                    <a href="/users/logout" class="split">Logout</a>
+                <%}%>
+
+
+                
+            </div>
+        </header>
+
+        <nav class="navigation">
+            <div class="navBar">
+                <ul>
+                    <li><a href="/events">Events</a></li>
+    
+                </ul>
+            </div>
+        </nav>
+        <% if(errorMessages.length > 0) {%>
+            <% errorMessages.forEach(message=>{%>
+                <div class='error'>
+                    <%=message%>
+                </div>
+                <%});%>
+                    <%}%>
+        
+                        <% if(successMessages.length > 0) {%>
+        
+                            <% successMessages.forEach(message=>{%>
+                                <div class='success'>
+                                    <%=message%>
+                                </div>
+                                <%});%>
+                                    <%}%>

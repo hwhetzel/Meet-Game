@@ -1,0 +1,32 @@
+<%- include('../partials/header.ejs')%>
+    <main class="newEventMain">
+        <div class="formContainer">
+            <form action = '/events' method = 'POST' enctype="multipart/form-data">
+                <div class="leftSide"><label for="category">Category</label></div>
+                <div class="rightSide"><select id="category" name="category" required>
+                        <option value="" disabled selected hidden>--Select a Category--</option>
+                        <option>Tournament</option>
+                        <option>Meetups</option>
+                        <option>Game Creation</option>
+                        <option>Costume Contest</option>
+                        <option>Other</option>
+                    </select></div>
+                <div class="leftSide"><label for="title">Title</label></div>
+                <div class="rightSide"><input type="text" id="title" name="title" placeholder="Title" required></div>
+                <div class="leftSide" id="detailsLabel"><label for="details">Details</label></div>
+                <div class="rightSide"><textarea id="details" name="details" rows="5" cols="40" required minlength="15"></textarea></div>
+                <div class="leftSide"><label for="location">Where</label></div>
+                <div class="rightSide"><input type="text" id="location" name="location" placeholder="Location" required></div>
+                <div class="leftSide"><label for="start">Start</label></div>
+                <div class="rightSide"><input type="datetime-local" id="start" name="start" required></div>
+                <div class="leftSide"><label for="end">End</label></div>
+                <div class="rightSide"><input type="datetime-local" id="end" name="end" required></div>
+                <div class="leftSide"><label for="image">Image</label></div>
+                <div class="rightSide"><input type="file" id="image" name="image" accept="image/*" required></div>
+                <div class="leftSide"></div>
+                <div class="button"><input type="submit" value="Submit"></div>
+                
+            </form>
+        </div>
+    </main>
+    <%- include('../partials/footer.ejs')%>

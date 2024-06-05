@@ -1,0 +1,32 @@
+<%- include('../partials/header.ejs')%>
+    <main class="newEventMain">
+        <div class="formContainer">
+            <form action = '/events/<%=event._id%>?_method=PUT' method = 'POST' enctype="multipart/form-data">
+                <div class="leftSide"><label for="category">Category</label></div>
+                <div class="rightSide"><select id="category" name="category" required>
+                        <option selected><%= event.category%></option>
+                        <option value="Tournament">Tournament</option>
+                        <option value="Meetups">Meetups</option>
+                        <option value="Game Creation">Game Creation</option>
+                        <option value="Costume Contest">Costume Contest</option>
+                        <option value="Other">Other</option>
+                    </select></div>
+                <div class="leftSide"><label for="title">Title</label></div>
+                <div class="rightSide"><input type="text" id="title" name="title" value="<%= event.title%>" required></div>
+                <div class="leftSide" id="detailsLabel"><label for="details">Details</label></div>
+                <div class="rightSide"><textarea id="details" name="details" rows="5" cols="40" required><%= event.details%></textarea></div>
+                <div class="leftSide"><label for="location">Where</label></div>
+                <div class="rightSide"><input type="text" id="location" name="location" value="<%= event.location%>" required></div>
+                <div class="leftSide"><label for="start">Start</label></div>
+                <div class="rightSide"><input type="datetime-local" id="start" name="start" value="<%= event.start%>" required></div>
+                <div class="leftSide"><label for="end">End</label></div>
+                <div class="rightSide"><input type="datetime-local" id="end" name="end" value="<%= event.end%>" required></div>
+                <div class="leftSide"><label for="image">Image</label></div>
+                <div class="rightSide"><input type="file" id="image" name="image"></div>
+                <div class="leftSide"></div>
+                <div class="button"><input type="submit" value="Submit"></div>
+                
+            </form>
+        </div>
+    </main>
+    <%- include('../partials/footer.ejs')%>
